@@ -1,0 +1,12 @@
+.hide-accord {
+height: 0!important;
+pointer-events: none!important;
+}
+.content-accord.time-step , .accord-icon { transition: all 0.4s ease-in-out}
+.content-accord {
+padding-top: 0!important;
+padding-bottom: 0!important;
+overflow: hidden!important;
+}
+.active-accord .accord-icon { transform: rotate(0deg)}
+.accord { cursor: pointer}
