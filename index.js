@@ -7,6 +7,9 @@ $(function () {
     let openNum = 3; // Номер открытой вкладки
     let scroll = false; // Скролл к открытой вкладке false - true
 
+    //Если есть иконка 
+    // $('.accord-icon').addClass('accord'); 
+    
     $('div[class*="uc-accord-'+liter+'"]').each(function(index){
         $('.uc-accord-'+liter+'-'+index+':first').addClass('title-accord').attr('data-accord-index', index);
         $('.uc-accord-'+liter+'-'+index+'').not(':first').addClass('content-accord hide-accord');
@@ -32,6 +35,7 @@ setRecHeight();
 $(window).resize(function() {clearTimeout(window.resizedFinished); window.resizedFinished = setTimeout(function(){ setRecHeight() }, 300);});
 
 function videoStop(){
+    // Если есть кнопка 
     document.querySelectorAll('.title-accord').forEach((e, i) => {
         if (!e.classList.contains('active-accord')) {
             if (i == 0) {
@@ -44,6 +48,7 @@ function videoStop(){
             e.querySelector('.accordBtn .tn-atom').textContent = 'Свернуть'
         }
     })
+    //
     setTimeout(function(){
         $('div.content-accord.hide-accord[class*="uc-accord-'+liter+'-"]').each(function(){
             let videoNum = $(this).find('div[data-elem-type="video"]').length;
@@ -66,13 +71,17 @@ if(oneAcc){
 //По одной вкладке
     if( cT.hasClass('active-accord') ){
         cT.removeClass('active-accord');
+        // Если есть кнопка 
         cT[0].querySelector('.accordBtn .tn-atom').textContent = 'Подробнее';
+        //
         $('div.content-accord.uc-accord-'+liter+'-'+ind+'').toggleClass('hide-accord');
         videoStop(cT[0]);
         } else{
         $('div.title-accord[class*="uc-accord-'+liter+'"]').removeClass('active-accord');
         cT.addClass('active-accord');
+        // Если есть кнопка 
         document.querySelector('.accordBtn .tn-atom').textContent = 'Свернуть';
+        //
         $('div.content-accord[class*="uc-accord-'+liter+'-"]').addClass('hide-accord');
 
         $('div.content-accord.uc-accord-'+liter+'-'+ind+'').removeClass('hide-accord');
